@@ -1,4 +1,4 @@
+import { logger } from './logger';
 
-
-
-export const app = () => { }
+// example file
+logger.debug('index');
