@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "ES2018",
+        "strict": true,
+        "moduleResolution": "Node",
+        "sourceMap": true,
+        "outDir": "dist",
+        "baseUrl": ".",
+        "pretty": true,
+        "removeComments": true,
+        "resolveJsonModule": true,
+        "noUnusedLocals": true
+    },
+    "include": ["src/**/*", "test/**/*"]
+}

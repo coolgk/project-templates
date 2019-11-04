@@ -1,0 +1,24 @@
+{
+    "reporter": [
+        "lcov",
+        "text",
+        "html"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+        "ts-node/register"
+    ],
+    "temp-dir": "./tmp/.nyc_output",
+    "report-dir": "./tmp/.test-coverage",
+    "sourceMap": true,
+    "instrument": true,
+    "all": true
+}
