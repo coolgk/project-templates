@@ -1,6 +1,6 @@
 # Node + Typescript Project Template
 
-This is generic template for node + typescript projects. Then entry point of the app is `src/index.ts`
+This is generic template for node + typescript projects. The entry point of the app is `src/index.ts`
 
 ## NPM Scripts
 
@@ -51,3 +51,11 @@ These configurations have only been tested with projects opened in Windows WSL m
 - `NodeTS: Start` - starts the app in debug mode
 - `NodeTS: Test All` - run tests in debug mode
 - `NodeTS: Test Current File` - run test on the current open/focused file e.g. if `someFile.test.ts` is the file in focus, and you pressed the "start debugging" button or Ctrl + F5, this command will run `mocha someFile.test.ts`
+
+## Configuration Files
+
+- ESLint: `.eslintrc` `.eslintignore`
+- Mocha: `.mocharc.json`
+- Istanbul: `.nycrc`
+- Nodemon: `nodemon.json`
+- Typescript: `tsconfig.json`
