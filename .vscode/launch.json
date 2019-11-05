@@ -7,7 +7,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "NodeTS: Test One",
+            "name": "NodeTS: Test Current File",
             "program": "${workspaceFolder}/node-typescript/node_modules/mocha/bin/_mocha",
             "preLaunchTask": "NodeTS:Build",
             "cwd": "${workspaceFolder}/node-typescript",

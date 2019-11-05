@@ -1,6 +1,6 @@
 # Project Templates
 
-[Node + Typescript Project templates](./node-typescript)
+[Node + Typescript Template](./node-typescript)
 
 ## Other things to Consider
 

@@ -1,5 +1,7 @@
 # Node + Typescript Project Template
 
+This is generic template for node + typescript projects. Then entry point of the app is `src/index.ts`
+
 ## NPM Scripts
 
 `NODE_PATH` used in scripts are for improving the readability of `import` statements e.g. Relative paths like `import someModule from '../../../utils/module'` can be written as `import someModule from 'src/utils/module'`
@@ -18,7 +20,7 @@ a `.env` file should be created first. `.env` file is used for for simulating en
 
 Production commands do not read the `.env` file. Production environment variables are defined in deployed environments.
 
-Do NOT use production commands in the local development environment. They might NOT work as expected because these commands may reply environment variables from the environment.
+Do NOT use production commands in the local development environment. They might NOT work as expected because these commands may reply environment variables from actual environments.
 
 - `npm start` - start application
 - `npm build` - compile typescript with no source maps and comments are removed from ts files
@@ -37,3 +39,15 @@ This project has been configured with three steps of code quality controls
 `npm run test:dev` is triggered before each push. Push will fail if tests fail or test coverage is below the threshold defined in `./.nycrc`.
 
 `npm run audit` is triggered before each push. Push will fail if there are vulnerabilities in dependencies. You should run `npm audit fix` to fix the vulnerabilities and commit the changes before you push again.
+
+## Debug Configurations for VS Code in Windows WSL
+
+[launch.json](../.vscode/launch.json) and [tasks.json](../.vscode/tasks.json) in [../.vscode](../.vscode) are VS Code debug configurations.
+
+You can copy these two files into your project's `.vscode folder` and either remove `/node-typescript` path from all the configurations or replace them with appropriate paths.
+
+These configurations have only been tested with VS Code in Windows WSL
+
+`NodeTS: Start` - starts the app in debug mode
+`NodeTS: Test All` - run tests in debug mode
+`NodeTS: Test Current File` - run test on the current open/focused file e.g. if `someFile.test.ts` is the file in focus, and you pressed the "start debugging" button or Ctrl + F5, this command will run `mocha someFile.test.ts`
