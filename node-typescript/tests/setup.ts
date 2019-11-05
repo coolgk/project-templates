@@ -2,5 +2,4 @@
  * test setup file
  */
 
-// dummy code
-process.env.NODE_ENV = 'test'
+// console.info('set up test');

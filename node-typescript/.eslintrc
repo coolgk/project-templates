@@ -55,7 +55,7 @@
             }
         ],
         "no-tabs": 1,
-        "no-console": 1,
+        "no-console": ["error"],
         "no-useless-return": 1,
         "no-else-return": 1,
         "camelcase": 1,
