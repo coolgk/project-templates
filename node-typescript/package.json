@@ -1,23 +1,25 @@
 {
-  "name": "typescript-project-template",
+  "name": "node-typescript-project-template",
   "version": "1.0.0",
-  "description": "template for typescript node project",
+  "description": "a template for typescript node projects",
   "main": "dist/src",
   "scripts": {
     "start": "NODE_PATH=./dist NODE_ENV=production node .",
     "build": "rm -fr ./dist/* && tsc",
-    "build:dev": "tsc --sourceMap --removeComments false --pretty",
+    "test": "NODE_PATH=./dist nyc mocha -- tests/**/*.test.ts",
     "dev": "NODE_PATH=./dist nodemon --verbose",
-    "mocha": "mocha",
-    "test": "nyc mocha -- test/**/*.test.ts",
-    "lint": "eslint src/. tests/."
+    "build:dev": "tsc --sourceMap --removeComments false --pretty",
+    "test:dev": "nyc npm run mocha -- -r dotenv/config tests/**/*.test.ts",
+    "mocha": "rm -fr ./dist/* && NODE_PATH=./dist mocha",
+    "lint": "eslint src tests"
   },
   "engines": {
     "node": "^12.0.0"
   },
-  "author": "",
+  "author": "Daniel Gong",
   "license": "ISC",
   "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^0.1.3",
     "@types/chai": "^4.2.4",
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.12.5",

@@ -4,9 +4,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "typescript",
-            "tsconfig": "typescript/tsconfig.json",
-            "problemMatcher": ["$tsc"],
+            "label": "NodeTS:Build",
+            "type": "shell",
+            "command": "tsc --sourceMap --removeComments false --pretty --project node-typescript/tsconfig.json",
             "group": "build"
         }
     ]

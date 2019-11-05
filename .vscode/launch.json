@@ -7,27 +7,50 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Node: Mocha Test Current File",
-            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
-            "args": ["${file}"],
-            "internalConsoleOptions": "openOnSessionStart"
+            "name": "NodeTS: Test One",
+            "program": "${workspaceFolder}/node-typescript/node_modules/mocha/bin/_mocha",
+            "preLaunchTask": "NodeTS:Build",
+            "cwd": "${workspaceFolder}/node-typescript",
+            "envFile": "${workspaceFolder}/node-typescript/.env",
+            "env": {
+                "NODE_PATH": "${workspaceFolder}/node-typescript/dist"
+            },
+            "args": ["--config", "${workspaceFolder}/node-typescript/.mocharc.json", "${file}"],
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std"
         },
         {
             "type": "node",
             "request": "launch",
-            "name": "Node: Mocha All Tests",
-            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
-            "args": ["${workspaceFolder}/tests/**/*.test.ts"],
-            "internalConsoleOptions": "openOnSessionStart"
+            "name": "NodeTS: Test All",
+            "program": "${workspaceFolder}/node-typescript/node_modules/mocha/bin/_mocha",
+            "preLaunchTask": "NodeTS:Build",
+            "cwd": "${workspaceFolder}/node-typescript",
+            "envFile": "${workspaceFolder}/node-typescript/.env",
+            "env": {
+                "NODE_PATH": "${workspaceFolder}/node-typescript/dist"
+            },
+            "args": [
+                "--config",
+                "${workspaceFolder}/node-typescript/.mocharc.json",
+                "${workspaceFolder}/node-typescript/tests/**/*.test.ts"
+            ],
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std"
         },
         {
             "type": "node",
             "request": "launch",
-            "name": "Node: Launch Program",
-            "program": "${workspaceFolder}/src",
-            "sourceMaps": true,
-            "preLaunchTask": "tsc: build - typescript/tsconfig.json",
-            "outFiles": ["${workspaceFolder}/dist/**/*.js"]
+            "name": "NodeTS: Start",
+            "program": "${workspaceFolder}/node-typescript/src/index.ts",
+            "preLaunchTask": "NodeTS:Build",
+            "envFile": "${workspaceFolder}/node-typescript/.env",
+            "env": {
+                "NODE_PATH": "${workspaceFolder}/node-typescript/dist"
+            },
+            "outFiles": ["${workspaceFolder}/node-typescript/dist/**/*.js"],
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std"
         }
     ]
 }
