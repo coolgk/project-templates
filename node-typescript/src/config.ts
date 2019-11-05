@@ -1,3 +1,9 @@
 const { LOG_LEVEL } = process.env;
 
-export const logLevel = LOG_LEVEL;
+export enum LogLevel {
+    Error = 'error',
+    Debug = 'debug',
+    Info = 'info'
+}
+
+export const logLevel = LOG_LEVEL || LogLevel.Error;
