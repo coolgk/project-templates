@@ -1,6 +1,8 @@
-# Project Templates For Build, Test and Start
+# Project Templates
 
-## Security Utilities
+[Node + Typescript Project templates](./node-typescript)
+
+## Other things to Consider
 
 [Talisman](https://github.com/thoughtworks/talisman) - pre commit hook for checking secrets or sensitive information in the repo
 

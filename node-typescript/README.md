@@ -2,4 +2,38 @@
 
 ## NPM Scripts
 
-### `npm start`
+`NODE_PATH` used in scripts are for improving the readability of `import` statements e.g. Relative paths like `import someModule from '../../../utils/module'` can be written as `import someModule from 'src/utils/module'`
+
+### Development Commands
+
+a `.env` file should be created first. `.env` file is used for for simulating environment variables in deployed environments (e.g. production). This file is used for local dev only, and is NOT used in production or any deployed environment (e.g. test, staging etc).
+
+- `npm run dev` - start the app in local development environment
+- `npm run test:dev` - run tests locally
+- `npm run lint` - run eslint
+- `npm run build:dev` - build typescript with source maps and comments in code are kept
+- `npm run mocha` - run customised mocha command e.g. test a single file `npm run mocha -- file-name-or-pattern` this command uses the mocha module installed in the project so you run tests with a consistent mocha version in all environments and you don't have to install mocha globally
+
+### Production Commands
+
+Production commands do not read the `.env` file. Production environment variables are defined in deployed environments.
+
+Do NOT use production commands in the local development environment. They might NOT work as expected because these commands may reply environment variables from the environment.
+
+- `npm start` - start application
+- `npm build` - compile typescript with no source maps and comments are removed from ts files
+- `npm test` - run tests
+
+## Quality Control
+
+This project has been configured with three steps of code quality controls
+
+### Pre-Commit Hook
+
+`npm run lint -- --fix` is triggered before each commit. This command fixes linting errors.
+
+### Pre-Push Hook
+
+`npm run test:dev` is triggered before each push. Push will fail if tests fail or test coverage is below the threshold defined in `./.nycrc`.
+
+`npm run audit` is triggered before each push. Push will fail if there are vulnerabilities in dependencies. You should run `npm audit fix` to fix the vulnerabilities and commit the changes before you push again.
