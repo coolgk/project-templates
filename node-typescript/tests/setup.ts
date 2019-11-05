@@ -1,3 +1,6 @@
-import { logger } from 'src/logger';
+/**
+ * test setup file
+ */
 
-logger.info('test setup file');
+// dummy code
+process.env.NODE_ENV = 'test'

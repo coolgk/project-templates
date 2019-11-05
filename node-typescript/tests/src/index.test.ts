@@ -17,7 +17,7 @@ describe('Feature: Title', () => {
 function getExpectedData(): Record<string, object> {
     return {
         dataForATestCase: {
-            value: 1
+            value: 'debug'
         }
     };
 }

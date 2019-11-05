@@ -6,4 +6,4 @@ export enum LogLevel {
     Info = 'info'
 }
 
-export const logLevel = LOG_LEVEL || LogLevel.Error;
+export const logLevel = LOG_LEVEL;
