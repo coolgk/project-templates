@@ -6,10 +6,10 @@
   "scripts": {
     "start": "NODE_PATH=./dist NODE_ENV=production node .",
     "build": "rm -fr ./dist/* && tsc",
-    "test": "nyc npm run mocha -- tests/**/*.test.ts",
+    "test": "NODE_PATH=. nyc mocha -- tests/**/*.test.ts",
     "dev": "NODE_PATH=./dist nodemon --verbose",
     "build:dev": "tsc --sourceMap --removeComments false --pretty",
-    "test:dev": "nyc npm run mocha -- -r dotenv/config tests/**/*.test.ts",
+    "test:dev": "NODE_PATH=. nyc mocha -- -r dotenv/config tests/**/*.test.ts",
     "mocha": "NODE_PATH=. mocha",
     "lint": "eslint --ext .js,.ts ."
   },
