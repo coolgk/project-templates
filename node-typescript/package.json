@@ -10,8 +10,8 @@
     "dev": "NODE_PATH=./dist nodemon --verbose",
     "build:dev": "tsc --sourceMap --removeComments false --pretty",
     "test:dev": "nyc npm run mocha -- -r dotenv/config tests/**/*.test.ts",
-    "mocha": "rm -fr ./dist/* && NODE_PATH=./dist mocha",
-    "lint": "eslint src tests"
+    "mocha": "rm -fr ./dist/* && NODE_PATH=. mocha",
+    "lint": "eslint --ext .js,.ts ."
   },
   "engines": {
     "node": "^12.0.0"
@@ -29,7 +29,6 @@
     "chai": "^4.2.0",
     "dotenv": "^8.2.0",
     "eslint": "^6.6.0",
-    "eslint-config-google": "^0.14.0",
     "mocha": "^6.2.2",
     "nodemon": "^1.19.4",
     "nyc": "^14.1.1",

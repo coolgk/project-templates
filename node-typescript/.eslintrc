@@ -1,15 +1,22 @@
 {
     "extends": [
         "eslint:recommended",
-        "google",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking"
     ],
     "rules": {
+        "no-use-before-define": 0,
         "require-jsdoc": 0,
         "comma-dangle": ["error", "never"],
-        "space-before-function-paren": ["error", "always"],
+        "space-before-function-paren": [
+            "error",
+            {
+                "anonymous": "never",
+                "named": "never",
+                "asyncArrow": "always"
+            }
+        ],
         "guard-for-in": 0,
         "no-extra-parens": 0,
         "indent": ["error", 4, { "SwitchCase": 1 }],
@@ -35,6 +42,7 @@
         "no-multi-spaces": 1,
         "no-var": 1,
         "arrow-parens": 1,
+        "eol-last": ["error", "always"],
         "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
         "max-len": [
             "error",
@@ -60,7 +68,8 @@
         "no-loop-func": 1,
         "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
         "object-curly-spacing": ["error", "always"],
-        "padded-blocks": 0
+        "padded-blocks": 0,
+        "@typescript-eslint/no-use-before-define": 0
     },
     "env": {
         "es6": true,

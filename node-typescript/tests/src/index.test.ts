@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { app } from 'src/index'
+import { app } from 'src/index';
 
 describe('Feature: Title', () => {
     const expectedData = getExpectedData();
@@ -9,15 +9,15 @@ describe('Feature: Title', () => {
         context('when something happens', () => {
             it('should achieve the expected result', () => {
                 expect(expectedData.dataForATestCase).to.have.property('value', app);
-            })
-        })
-    })
+            });
+        });
+    });
 });
 
-function getExpectedData() {
+function getExpectedData(): Record<string, object> {
     return {
         dataForATestCase: {
             value: 1
         }
-    }
+    };
 }

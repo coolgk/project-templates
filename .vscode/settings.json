@@ -1,7 +1,14 @@
 {
     "cSpell.words": [
+        "builtins",
         "camelcase",
+        "eqeqeq",
+        "es",
+        "interop",
         "istanbuljs",
-        "lcov"
+        "lcov",
+        "module",
+        "paren",
+        "parens"
     ]
 }

@@ -1,6 +1,6 @@
 import { createLogger, format, transports } from 'winston';
 
-import { logLevel } from 'src/config'
+import { logLevel } from 'src/config';
 
 export enum LogLevel {
     Error = 'error',

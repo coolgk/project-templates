@@ -1,2 +1,3 @@
+import { logger } from 'src/logger';
 
-console.log('test setup script');
+logger.info('test setup file');

@@ -12,7 +12,6 @@
     "report-dir": "./tmp/.test-coverage",
     "sourceMap": true,
     "all": true,
-    "cache": false,
     "lines": 90,
     "statements": 90,
     "functions": 90,
