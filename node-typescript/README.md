@@ -44,10 +44,10 @@ This project has been configured with three steps of code quality controls
 
 [launch.json](../.vscode/launch.json) and [tasks.json](../.vscode/tasks.json) in [../.vscode](../.vscode) are VS Code debug configurations.
 
-You can copy these two files into your project's `.vscode folder` and either remove `/node-typescript` path from all the configurations or replace them with appropriate paths.
+You can copy these two files into your project's `.vscode` folder and either remove `/node-typescript` path from all the configurations or replace them with appropriate paths.
 
-These configurations have only been tested with VS Code in Windows WSL
+These configurations have only been tested with projects opened in Windows WSL mode.
 
-`NodeTS: Start` - starts the app in debug mode
-`NodeTS: Test All` - run tests in debug mode
-`NodeTS: Test Current File` - run test on the current open/focused file e.g. if `someFile.test.ts` is the file in focus, and you pressed the "start debugging" button or Ctrl + F5, this command will run `mocha someFile.test.ts`
+- `NodeTS: Start` - starts the app in debug mode
+- `NodeTS: Test All` - run tests in debug mode
+- `NodeTS: Test Current File` - run test on the current open/focused file e.g. if `someFile.test.ts` is the file in focus, and you pressed the "start debugging" button or Ctrl + F5, this command will run `mocha someFile.test.ts`
