@@ -16,8 +16,6 @@ describe('Feature: cli', () => {
 
             before(() => {
                 const cliPath = resolve(root, 'src', 'bin', 'cli.ts');
-                console.log(cliPath);
-
                 // exec('node -r ts-node/register ' + cliPath, { cwd }, done);
             });
 
