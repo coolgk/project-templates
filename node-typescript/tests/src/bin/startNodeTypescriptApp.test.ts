@@ -12,46 +12,45 @@ import packageJsonTemplate from 'package.json';
 
 describe('Feature: cli', () => {
     const root = resolve(__dirname, '..', '..', '..');
+    const cwd = resolve(root, 'tmp');
+    const appDirectory = resolve(cwd, 'app');
 
-    context('given the tmp exists in the project directory', () => {
-        const cwd = resolve(root, 'tmp');
+    const spawnStub = stub(childProcess, 'spawn');
 
-        before((done) => {
-            fs.mkdir(cwd, { recursive: true }, done);
-        });
+    before(() => {
+        fs.mkdirSync(cwd, { recursive: true });
 
-        context(`when the cli command is called in the tmp folder
-            AND the first argument is "app"`, () => {
+        spawnStub
+            .withArgs(
+                'npm',
+                match.array.contains(['i', '-D']),
+                match.any
+            )
+            .returns({
+                stdout: new Stream(),
+                stderr: new Stream(),
+                on: (event: string, callback: () => {}) => {
+                    event === 'close' && callback();
+                }
+            } as ChildProcessWithoutNullStreams);
 
-            const appDirectory = resolve(cwd, 'app');
-            const spawnStub = stub(childProcess, 'spawn');
+        spawnStub.callThrough();
+    });
+
+    after((done) => {
+        spawnStub.restore();
+        fs.rmdir(appDirectory, { recursive: true }, done);
+    });
+
+    context('given the app directory does not exist', () => {
+        context(`when startNodeTypescriptApp("app") is called`, () => {
             let packageJson: Record<string, object | string>;
 
-            before(async () => {
-                spawnStub
-                    .withArgs(
-                        'npm',
-                        match.array.contains(['i', '-D']),
-                        match.any
-                    )
-                    .returns({
-                        stdout: new Stream(),
-                        stderr: new Stream(),
-                        on: (event: string, callback: () => {}) => {
-                            event === 'close' && callback();
-                        }
-                    } as ChildProcessWithoutNullStreams);
-
-                spawnStub.callThrough();
-
+            before(async function () {
+                // eslint-disable-next-line no-invalid-this
+                this.timeout(10000);
                 await startNodeTypescriptApp(appDirectory);
-
                 packageJson = require(resolve(appDirectory, 'package.json'));
-            });
-
-            after((done) => {
-                spawnStub.restore();
-                fs.rmdir(appDirectory, { recursive: true }, done);
             });
 
             it('should create an app folders', () => {
@@ -100,11 +99,14 @@ describe('Feature: cli', () => {
                 );
             });
 
-            it('should create the .eslintrc file', () => {
+            it('should create the .eslintrc.json file', () => {
+                const eslintrcTemplate = JSON.parse(getFileContent([root, '.eslintrc.json']));
+                delete eslintrcTemplate.rules;
+
                 expect(
-                    getFileContent([appDirectory, '.eslintrc'])
-                ).to.equal(
-                    getFileContent([root, '.eslintrc'])
+                    JSON.parse(getFileContent([appDirectory, '.eslintrc.json']))
+                ).to.deep.equal(
+                    eslintrcTemplate
                 );
             });
 
@@ -174,6 +176,64 @@ describe('Feature: cli', () => {
                     ['i', '-D', ...Object.keys(packageJsonTemplate.devDependencies)],
                     { cwd: appDirectory }
                 ]);
+            });
+        });
+    });
+
+    context('given the app directory contains an existing project', () => {
+        context(`when startNodeTypescriptApp("app") is called`, () => {
+            let packageJson: Record<string, object | string>;
+
+            before(async function () {
+                // eslint-disable-next-line no-invalid-this
+                this.timeout(10000);
+                await startNodeTypescriptApp(appDirectory);
+                packageJson = require(resolve(appDirectory, 'package.json'));
+            });
+
+            it('should rename existing files', () => {
+                expect(
+                    fs.existsSync(resolve(appDirectory, '.env.original'))
+                ).to.be.true;
+
+                expect(
+                    fs.existsSync(resolve(appDirectory, '.eslintignore.original'))
+                ).to.be.true;
+
+                expect(
+                    fs.existsSync(resolve(appDirectory, '.eslintrc.json.original'))
+                ).to.be.true;
+
+
+                expect(
+                    fs.existsSync(resolve(appDirectory, '.gitignore.original'))
+                ).to.be.true;
+
+                expect(
+                    fs.existsSync(resolve(appDirectory, '.mocharc.json.original'))
+                ).to.be.true;
+
+                expect(
+                    fs.existsSync(resolve(appDirectory, '.nycrc.original'))
+                ).to.be.true;
+
+                expect(
+                    fs.existsSync(resolve(appDirectory, 'nodemon.json.original'))
+                ).to.be.true;
+
+                expect(
+                    fs.existsSync(resolve(appDirectory, 'README.md.original'))
+                ).to.be.true;
+
+                expect(
+                    fs.existsSync(resolve(appDirectory, 'tsconfig.json.original'))
+                ).to.be.true;
+            });
+
+            it('should rename existing values in package.json', () => {
+                expect(packageJson).to.have.property('scripts.original');
+                expect(packageJson).to.have.property('husky.original');
+                expect(packageJson).to.have.property('main.original');
             });
         });
     });

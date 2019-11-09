@@ -83,7 +83,7 @@ function copyFiles(directory) {
         ['tests/src/index.test.ts'],
         ['tests/setup.ts'],
         ['.eslintignore'],
-        ['.eslintrc'],
+        ['.eslintrc.json'],
         ['.gitignore'],
         ['.mocharc.json'],
         ['.nycrc'],

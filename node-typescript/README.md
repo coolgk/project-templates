@@ -56,7 +56,7 @@ These configurations have only been tested with projects opened in Windows WSL m
 
 ## Configuration Files
 
-- ESLint: `.eslintrc` `.eslintignore`
+- ESLint: `.eslintrc.json` `.eslintignore`
 - Mocha: `.mocharc.json`
 - Istanbul: `.nycrc`
 - Nodemon: `nodemon.json`

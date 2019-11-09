@@ -6,6 +6,7 @@
         "eqeqeq",
         "es",
         "eslintignore",
+        "gitignore",
         "interop",
         "istanbuljs",
         "lcov",

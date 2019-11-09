@@ -65,7 +65,7 @@ function copyFiles (directory: string): void {
         ['tests/src/index.test.ts'],
         ['tests/setup.ts'],
         ['.eslintignore'],
-        ['.eslintrc'],
+        ['.eslintrc.json'],
         ['.gitignore'],
         ['.mocharc.json'],
         ['.nycrc'],
@@ -86,10 +86,27 @@ function copyFiles (directory: string): void {
             console.info(`renamed existing ${basename} to ${basename}.original`);
         }
 
-        fs.copyFileSync(
-            path.resolve(__dirname, '..', '..', templateFilename),
-            targetFile
-        );
+        const templateFile = path.resolve(__dirname, '..', '..', templateFilename);
+
+        if (templateFilename === '.eslintrc.json') {
+            // eslint-disable-next-line @typescript-eslint/no-var-requires, security/detect-non-literal-require
+            const eslintrc = require(templateFile);
+
+            // eslint-disable-next-line security/detect-non-literal-fs-filename
+            fs.writeFileSync(
+                targetFile,
+                JSON.stringify(
+                    { ...eslintrc, rules: undefined },
+                    null,
+                    4
+                ),
+                {
+                    encoding: 'utf-8'
+                }
+            );
+        } else {
+            fs.copyFileSync(templateFile, targetFile);
+        }
     });
 }
 

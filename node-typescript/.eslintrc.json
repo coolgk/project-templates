@@ -13,6 +13,8 @@
         "space-before-function-paren": ["error", "always"],
         "guard-for-in": 0,
         "no-extra-parens": 0,
+        "padded-blocks": 0,
+        "@typescript-eslint/no-use-before-define": 0,
         "indent": [
             "error",
             4,
@@ -87,8 +89,7 @@
             }
         ],
         "object-curly-spacing": ["error", "always"],
-        "padded-blocks": 0,
-        "@typescript-eslint/no-use-before-define": 0
+        "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }]
     },
     "env": {
         "es6": true,
