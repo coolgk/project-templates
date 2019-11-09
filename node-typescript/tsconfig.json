@@ -11,6 +11,7 @@
         "pretty": true,
         "removeComments": true,
         "resolveJsonModule": true,
+        "noUnusedParameters": true,
         "noUnusedLocals": true
     },
     "include": ["src/**/*", "tests/**/*"]

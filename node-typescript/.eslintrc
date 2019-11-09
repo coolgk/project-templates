@@ -1,6 +1,7 @@
 {
     "extends": [
         "eslint:recommended",
+        "plugin:security/recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking"
@@ -12,14 +13,20 @@
         "space-before-function-paren": [
             "error",
             {
-                "anonymous": "never",
+                "anonymous": "always",
                 "named": "never",
                 "asyncArrow": "always"
             }
         ],
         "guard-for-in": 0,
         "no-extra-parens": 0,
-        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
         "no-prototype-builtins": 1,
         "no-template-curly-in-string": 1,
         "array-callback-return": 1,
@@ -43,7 +50,14 @@
         "no-var": 1,
         "arrow-parens": 1,
         "eol-last": ["error", "always"],
-        "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
+        "quotes": [
+            "error",
+            "single",
+            {
+                "avoidEscape": true,
+                "allowTemplateLiterals": true
+            }
+        ],
         "max-len": [
             "error",
             {
@@ -63,10 +77,22 @@
         "strict": 1,
         "no-trailing-spaces": 1,
         "one-var": ["error", "never"],
-        "semi": ["error", "always", { "omitLastInOneLineBlock": true }],
+        "semi": [
+            "error",
+            "always",
+            {
+                "omitLastInOneLineBlock": true
+            }
+        ],
         "no-empty-function": 1,
         "no-loop-func": 1,
-        "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
+        "arrow-body-style": [
+            "error",
+            "as-needed",
+            {
+                "requireReturnForObjectLiteral": true
+            }
+        ],
         "object-curly-spacing": ["error", "always"],
         "padded-blocks": 0,
         "@typescript-eslint/no-use-before-define": 0
@@ -77,7 +103,7 @@
         "mocha": true
     },
     "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint"],
+    "plugins": ["@typescript-eslint", "security"],
     "parserOptions": {
         "ecmaVersion": 8,
         "project": "./tsconfig.json"
