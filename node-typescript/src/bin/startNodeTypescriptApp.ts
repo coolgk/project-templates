@@ -5,7 +5,7 @@ import path from 'path';
 import childProcess from 'child_process';
 import packageJson from '../../package.json';
 
-export default async function startNodeTypescriptApp (directory: string): Promise<void> {
+export default async function startNodeTypescriptApp (directory = '.'): Promise<void> {
     // eslint-disable-next-line no-console
     console.info('Initialising Project\n');
     const projectDirectory = createProjectDirectory(directory);
@@ -42,7 +42,7 @@ function installDevDependencies (cwd: string, devDependencies: string[]): Promis
     );
 }
 
-function createProjectDirectory (directory = '.'): string {
+function createProjectDirectory (directory: string): string {
     const subDirectories = [
         '',
         'src',
