@@ -10,14 +10,7 @@
         "no-use-before-define": 0,
         "require-jsdoc": 0,
         "comma-dangle": ["error", "never"],
-        "space-before-function-paren": [
-            "error",
-            {
-                "anonymous": "always",
-                "named": "never",
-                "asyncArrow": "always"
-            }
-        ],
+        "space-before-function-paren": ["error", "always"],
         "guard-for-in": 0,
         "no-extra-parens": 0,
         "indent": [
