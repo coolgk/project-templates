@@ -13,9 +13,6 @@
   "bin": {
     "create-node-type-script-app": "./bin/cli.js"
   },
-  "dependencies": {
-    "ncp": "^2.0.0"
-  },
   "devDependencies": {
     "eslint": "^6.6.0"
   }

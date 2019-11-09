@@ -5,10 +5,13 @@
         "camelcase",
         "eqeqeq",
         "es",
+        "eslintignore",
         "interop",
         "istanbuljs",
         "lcov",
+        "mocharc",
         "module",
+        "nycrc",
         "paren",
         "parens"
     ]
