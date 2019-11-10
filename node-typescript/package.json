@@ -47,6 +47,6 @@
     }
   },
   "bin": {
-    "create-node-typescript-app": "./bin/cli.js"
+    "create-node-typescript-app": "./bin/cli"
   }
 }

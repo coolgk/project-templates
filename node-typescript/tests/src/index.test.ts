@@ -14,7 +14,7 @@ describe('Feature: Title', () => {
     });
 });
 
-function getExpectedData(): Record<string, object> {
+function getExpectedData (): Record<string, object> {
     return {
         dataForATestCase: {
             value: 'debug'

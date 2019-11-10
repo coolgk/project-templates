@@ -49,7 +49,7 @@ describe('Feature: cli', () => {
             before(async function () {
                 // eslint-disable-next-line no-invalid-this
                 this.timeout(10000);
-                await startNodeTypescriptApp(appDirectory);
+                await startNodeTypescriptApp(root, appDirectory);
                 packageJson = require(resolve(appDirectory, 'package.json'));
             });
 
@@ -188,7 +188,7 @@ describe('Feature: cli', () => {
                 // eslint-disable-next-line no-invalid-this
                 this.timeout(10000);
                 process.chdir(appDirectory);
-                await startNodeTypescriptApp();
+                await startNodeTypescriptApp(root);
                 packageJson = require(resolve(appDirectory, 'package.json'));
             });
 

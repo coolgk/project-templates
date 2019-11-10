@@ -5,12 +5,12 @@ import path from 'path';
 import childProcess from 'child_process';
 import packageJson from '../../package.json';
 
-export default async function startNodeTypescriptApp (directory = '.'): Promise<void> {
+export default async function startNodeTypescriptApp (templateDirectory: string, directory = '.'): Promise<void> {
     // eslint-disable-next-line no-console
     console.info('Initialising Project\n');
     const projectDirectory = createProjectDirectory(directory);
 
-    copyFiles(projectDirectory);
+    copyFiles(templateDirectory, projectDirectory);
 
     await initPackageJson(projectDirectory);
 
@@ -59,7 +59,7 @@ function createProjectDirectory (directory: string): string {
     return subDirectories[0];
 }
 
-function copyFiles (directory: string): void {
+function copyFiles (templateDirectory: string, directory: string): void {
     const files = [
         ['src/index.ts'],
         ['tests/src/index.test.ts'],
@@ -86,7 +86,7 @@ function copyFiles (directory: string): void {
             console.info(`renamed existing ${basename} to ${basename}.original`);
         }
 
-        const templateFile = path.resolve(__dirname, '..', '..', templateFilename);
+        const templateFile = path.resolve(templateDirectory, templateFilename);
 
         if (templateFilename === '.eslintrc.json') {
             // eslint-disable-next-line @typescript-eslint/no-var-requires, security/detect-non-literal-require
