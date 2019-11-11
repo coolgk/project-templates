@@ -7,3 +7,4 @@ tests/src/bin
 dist/src/config.js
 dist/tests
 dist/src/index.js
+tmp
