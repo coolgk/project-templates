@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
 require('../dist/src/bin/startNodeTypescriptApp').default(
-    require('path').resolve('..'),
+    require('path').resolve(__dirname, '..'),
     process.argv[2]
 );
