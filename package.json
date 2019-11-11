@@ -1,6 +1,5 @@
 {
-  "name": "root",
-  "private": true,
+  "name": "project-templates",
   "devDependencies": {
     "lerna": "^3.18.4"
   }
