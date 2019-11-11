@@ -4,17 +4,21 @@ This is generic template for node + typescript projects. The entry point of the 
 
 ## Usage
 
-### Outside project directory
+create a new project in a new `folder`
 
 `npx create-node-typescript-app <folder>`
 
-### Inside Project Directory
+or inside the project directory
 
-`npm init node-typescript-app`
+`npm init node-typescript-app` or `npx create-node-typescript-app .`
 
-or
+or install this module globally
 
-`npm create-node-typescript-app .`
+`npm i -g create-node-typescript-app`
+
+and run
+
+`create-node-typescript-app <folder>`
 
 ## NPM Scripts
 
