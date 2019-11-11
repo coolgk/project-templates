@@ -2,5 +2,5 @@
 
 require('../dist/src/bin/startNodeTypescriptApp').default(
     require('path').resolve(__dirname, '..'),
-    process.argv[2]
+    process.argv[2] || '.'
 );

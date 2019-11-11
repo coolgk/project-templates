@@ -1,6 +1,20 @@
-# Node + Typescript Project Template
+# A Node + Typescript + Mocha + Nyc + Eslint + Nodemon Template Generator
 
 This is generic template for node + typescript projects. The entry point of the app is `src/index.ts`
+
+## Usage
+
+### Outside project directory
+
+`npx create-node-typescript-app <folder>`
+
+### Inside Project Directory
+
+`npm init node-typescript-app`
+
+or
+
+`npm create-node-typescript-app .`
 
 ## NPM Scripts
 
