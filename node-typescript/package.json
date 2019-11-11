@@ -53,5 +53,9 @@
     "node",
     "typescript",
     "template"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coolgk/project-templates/tree/master/node-typescript"
+  }
 }
