@@ -68,9 +68,9 @@ Copy [launch.json](.vscode/launch.json) and [tasks.json](.vscode/tasks.json) fro
 
 These configurations have only been tested with projects opened in Windows WSL mode.
 
-- `NodeTS: Start` - starts the app in debug mode
-- `NodeTS: Test All` - run tests in debug mode
-- `NodeTS: Test Current File` - run test on the current open/focused file e.g. if `someFile.test.ts` is the file in focus, and you pressed the "start debugging" button or Ctrl + F5, this command will run `mocha someFile.test.ts`
+- `Start (NodeTS WSL)` - starts the app in debug mode
+- `Test All (NodeTS WSL)` - run tests in debug mode
+- `Test Current File (NodeTS WSL)` - run test on the current open/focused file e.g. if `someFile.test.ts` is the file in focus, and you pressed the "start debugging" button or Ctrl + F5, this command will run `mocha someFile.test.ts`
 
 ## Configuration Files
 
