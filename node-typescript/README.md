@@ -4,8 +4,6 @@ This is generic template for node + typescript projects. The entry point of the 
 
 ## NPM Scripts
 
-`NODE_PATH` used in scripts are for improving the readability of `import` statements e.g. Relative paths like `import someModule from '../../../utils/module'` can be written as `import someModule from 'src/utils/module'`
-
 ### Development Commands
 
 a `.env` file should be created first. `.env` file is used for for simulating environment variables in deployed environments (e.g. production). This file is used for local dev only, and is NOT used in production or any deployed environment (e.g. test, staging etc).
@@ -25,6 +23,10 @@ Do NOT use production commands in the local development environment. They might 
 - `npm start` - start application
 - `npm build` - compile typescript with no source maps and comments are removed from ts files
 - `npm test` - run tests
+
+### NODE_PATH
+
+`NODE_PATH` used in scripts are for improving the readability of `import` statements e.g. Relative paths like `import someModule from '../../../utils/module'` can be written as `import someModule from 'src/utils/module'`
 
 ## Quality Control
 
