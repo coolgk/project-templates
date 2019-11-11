@@ -1,0 +1,10 @@
+.env
+src/bin
+src/config.ts
+tests/src/config.test.ts
+tests/src/bin
+!.gitignore
+dist/src/config.js
+dist/tests
+dist/src/index.js
+tmp

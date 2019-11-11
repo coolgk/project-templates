@@ -1,23 +1,24 @@
 {
-  "name": "node-typescript-project-template",
-  "version": "1.0.0",
-  "description": "a template for typescript node projects",
+  "name": "create-node-typescript-app",
+  "version": "0.0.11",
+  "description": "a template for node typescript projects",
   "main": "dist/src",
   "scripts": {
     "start": "NODE_PATH=./dist NODE_ENV=production node .",
     "build": "rm -fr ./dist/* && tsc",
-    "test": "NODE_PATH=. nyc mocha -- tests/**/*.test.ts",
+    "test": "NODE_PATH=. nyc mocha -- \"tests/**/*.test.ts\"",
     "dev": "NODE_PATH=./dist nodemon --verbose",
     "build:dev": "tsc --sourceMap --removeComments false --pretty",
-    "test:dev": "NODE_PATH=. nyc mocha -- -r dotenv/config tests/**/*.test.ts",
-    "mocha": "NODE_PATH=. mocha",
-    "lint": "eslint --ext .js,.ts ."
+    "test:dev": "NODE_PATH=. nyc mocha -- -r dotenv/config \"tests/**/*.test.ts\"",
+    "test:one": "NODE_PATH=. mocha -r dotenv/config",
+    "lint": "eslint --ext .js,.ts .",
+    "prepublishOnly": "npm run build"
   },
   "engines": {
     "node": "^12.0.0"
   },
   "author": "Daniel Gong",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^0.1.3",
     "@types/chai": "^4.2.4",
@@ -29,13 +30,13 @@
     "chai": "^4.2.0",
     "dotenv": "^8.2.0",
     "eslint": "^6.6.0",
+    "eslint-plugin-security": "^1.4.0",
     "husky": "^3.0.9",
     "mocha": "^6.2.2",
     "nodemon": "^1.19.4",
     "nyc": "^14.1.1",
     "sinon": "^7.5.0",
     "source-map-support": "^0.5.16",
-    "supertest": "^4.0.2",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.4"
   },
@@ -44,5 +45,13 @@
       "pre-commit": "npm run lint -- --fix",
       "pre-push": "npm run test:dev && npm audit"
     }
-  }
+  },
+  "bin": {
+    "create-node-typescript-app": "./bin/cli"
+  },
+  "keywords": [
+    "node",
+    "typescript",
+    "template"
+  ]
 }

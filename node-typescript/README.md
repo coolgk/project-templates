@@ -1,10 +1,26 @@
-# Node + Typescript Project Template
+# A Node + Typescript + Mocha + Nyc + Eslint + Nodemon Template Generator
 
 This is generic template for node + typescript projects. The entry point of the app is `src/index.ts`
 
-## NPM Scripts
+## Usage
 
-`NODE_PATH` used in scripts are for improving the readability of `import` statements e.g. Relative paths like `import someModule from '../../../utils/module'` can be written as `import someModule from 'src/utils/module'`
+create a new project in a new `folder`
+
+`npx create-node-typescript-app <folder>`
+
+or inside the project directory
+
+`npm init node-typescript-app` or `npx create-node-typescript-app .`
+
+or install this module globally
+
+`npm i -g create-node-typescript-app`
+
+and run
+
+`create-node-typescript-app <folder>`
+
+## NPM Scripts
 
 ### Development Commands
 
@@ -26,6 +42,10 @@ Do NOT use production commands in the local development environment. They might 
 - `npm build` - compile typescript with no source maps and comments are removed from ts files
 - `npm test` - run tests
 
+### NODE_PATH
+
+`NODE_PATH` used in scripts are for improving the readability of `import` statements e.g. Relative paths like `import someModule from '../../../utils/module'` can be written as `import someModule from 'src/utils/module'`
+
 ## Quality Control
 
 This project has been configured with three steps of code quality controls
@@ -42,21 +62,19 @@ This project has been configured with three steps of code quality controls
 
 ## Debug Configurations for VS Code in Windows WSL
 
-https://code.visualstudio.com/remote-tutorials/wsl/run-in-wsl
+[Run VS Code in Windows Subsystem for Linux](https://code.visualstudio.com/remote-tutorials/wsl/run-in-wsl)
 
-[launch.json](../.vscode/launch.json) and [tasks.json](../.vscode/tasks.json) in [../.vscode](../.vscode) are VS Code debug configurations.
-
-You can copy these two files into your project's `.vscode` folder and either remove `/node-typescript` path from all the configurations or replace them with appropriate paths.
+Copy [launch.json](.vscode/launch.json) and [tasks.json](.vscode/tasks.json) from the [.vscode](.vscode) folder to your project's `.vscode` folder.
 
 These configurations have only been tested with projects opened in Windows WSL mode.
 
-- `NodeTS: Start` - starts the app in debug mode
-- `NodeTS: Test All` - run tests in debug mode
-- `NodeTS: Test Current File` - run test on the current open/focused file e.g. if `someFile.test.ts` is the file in focus, and you pressed the "start debugging" button or Ctrl + F5, this command will run `mocha someFile.test.ts`
+- `Start (NodeTS WSL)` - starts the app in debug mode
+- `Test All (NodeTS WSL)` - run tests in debug mode
+- `Test Current File (NodeTS WSL)` - run test on the current open/focused file e.g. if `someFile.test.ts` is the file in focus, and you pressed the "start debugging" button or Ctrl + F5, this command will run `mocha someFile.test.ts`
 
 ## Configuration Files
 
-- ESLint: `.eslintrc` `.eslintignore`
+- ESLint: `.eslintrc.json` `.eslintignore`
 - Mocha: `.mocharc.json`
 - Istanbul: `.nycrc`
 - Nodemon: `nodemon.json`

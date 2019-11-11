@@ -1,6 +1,6 @@
 # Project Templates
 
-[Node + Typescript Template](./node-typescript)
+[Node + Typescript + Mocha + Nyc + Eslint + Nodemon Template](./node-typescript)
 
 ## Other things to Consider
 
