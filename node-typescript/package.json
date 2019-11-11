@@ -48,13 +48,5 @@
   },
   "bin": {
     "create-node-typescript-app": "./bin/cli"
-  },
-  "files": [
-    "bin",
-    "dist/src/bin",
-    "src/bin/startNodeTypescriptApp.js",
-    "src/index.ts",
-    "tests/setup.ts",
-    "tests/src/index.test.ts"
-  ]
+  }
 }

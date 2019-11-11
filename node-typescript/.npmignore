@@ -1,0 +1,4 @@
+.env
+src/bin
+src/config.ts
+tests/src/config.test.ts
