@@ -14,9 +14,10 @@ export default async function startNodeTypescriptApp (templateDirectory: string,
 
     await initPackageJson(projectDirectory);
 
+    const devDependencies = Object.keys(packageJson.devDependencies);
     // eslint-disable-next-line no-console
-    console.info('Installing Dependencies\n');
-    await installDevDependencies(projectDirectory, Object.keys(packageJson.devDependencies));
+    console.info(`Installing Dependencies: ${devDependencies.join(', ')}\n`);
+    await installDevDependencies(projectDirectory, devDependencies);
 
     updatePackageJson(projectDirectory, packageJson);
 }

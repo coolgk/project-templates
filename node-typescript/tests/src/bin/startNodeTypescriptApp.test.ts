@@ -240,6 +240,6 @@ describe('Feature: cli', () => {
     });
 });
 
-function getFileContent (paths: string[]): string {
+function getFileContent(paths: string[]): string {
     return fs.readFileSync(resolve(...paths), { encoding: 'utf-8' });
 }
