@@ -52,6 +52,9 @@
   "files": [
     "bin",
     "dist/src/bin",
-    "src/bin/startNodeTypescriptApp.js"
+    "src/bin/startNodeTypescriptApp.js",
+    "src/index.ts",
+    "tests/setup.ts",
+    "tests/src/index.test.ts"
   ]
 }
