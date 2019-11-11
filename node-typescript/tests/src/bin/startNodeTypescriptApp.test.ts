@@ -37,9 +37,9 @@ describe('Feature: cli', () => {
         spawnStub.callThrough();
     });
 
-    after((done) => {
+    after(() => {
         spawnStub.restore();
-        fs.rmdir(appDirectory, { recursive: true }, done);
+        fs.rmdirSync(appDirectory, { recursive: true });
     });
 
     context('given the app directory does not exist', () => {
