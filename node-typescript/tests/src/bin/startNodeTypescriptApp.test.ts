@@ -114,7 +114,7 @@ describe('Feature: cli', () => {
                 expect(
                     getFileContent([appDirectory, '.gitignore'])
                 ).to.equal(
-                    getFileContent([root, '.gitignore'])
+                    getFileContent([root, '.npmignore'])
                 );
             });
 
