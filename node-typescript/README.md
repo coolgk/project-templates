@@ -44,9 +44,7 @@ This project has been configured with three steps of code quality controls
 
 [Run VS Code in Windows Subsystem for Linux](https://code.visualstudio.com/remote-tutorials/wsl/run-in-wsl)
 
-[launch.json](../.vscode/launch.json) and [tasks.json](../.vscode/tasks.json) in [../.vscode](../.vscode) are VS Code debug configurations.
-
-You can copy these two files into your project's `.vscode` folder and either remove `/node-typescript` path from all the configurations or replace them with appropriate paths.
+Copy [launch.json](.vscode/launch.json) and [tasks.json](.vscode/tasks.json) from the [.vscode](.vscode) folder to your project's `.vscode` folder.
 
 These configurations have only been tested with projects opened in Windows WSL mode.
 
