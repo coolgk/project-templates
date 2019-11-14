@@ -7,4 +7,7 @@ branches:
   only:
     - master
     - develop
+env:
+  global:
+    - LOG_LEVEL=debug
 after_success: npm run coveralls
