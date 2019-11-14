@@ -2,10 +2,13 @@
   "name": "project-templates",
   "scripts": {
     "test": "cd node-typescript && npm test",
+    "coveralls": "nyc report --reporter=text-lcov --temp-dir node-typescript/tmp/.nyc_output | coveralls",
     "lerna": "lerna",
     "pub": "lerna publish"
   },
   "devDependencies": {
-    "lerna": "^3.18.4"
+    "coveralls": "^3.0.7",
+    "lerna": "^3.18.4",
+    "nyc": "^14.1.1"
   }
 }
