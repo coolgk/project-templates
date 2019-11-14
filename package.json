@@ -2,7 +2,6 @@
   "name": "project-templates",
   "scripts": {
     "test": "cd node-typescript && npm test",
-    "coveralls": "nyc report --reporter=text-lcov --temp-dir node-typescript/tmp/.nyc_output | coveralls",
     "lerna": "lerna",
     "pub": "lerna publish"
   },
