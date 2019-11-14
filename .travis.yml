@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - '12'
+before_script:
+  - cd node-typescript && npm i
+branches:
+  only:
+    - master
+    - develop
+env:
+  global:
+    - LOG_LEVEL=debug
