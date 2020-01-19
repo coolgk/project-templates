@@ -10,6 +10,10 @@ import { Stream } from 'stream';
 import startNodeTypescriptApp from 'src/bin/startNodeTypescriptApp';
 import packageJsonTemplate from 'package.json';
 
+function getFileContent (paths: string[]): string {
+    return fs.readFileSync(resolve(...paths), { encoding: 'utf-8' });
+}
+
 describe('Feature: cli', () => {
     const root = resolve(__dirname, '..', '..', '..');
     const cwd = resolve(root, 'tmp');
@@ -240,6 +244,3 @@ describe('Feature: cli', () => {
     });
 });
 
-function getFileContent(paths: string[]): string {
-    return fs.readFileSync(resolve(...paths), { encoding: 'utf-8' });
-}
