@@ -1,19 +1,31 @@
 {
-    "cSpell.words": [
-        "COPYFILE",
-        "builtins",
-        "camelcase",
-        "eqeqeq",
-        "es",
-        "eslintignore",
-        "gitignore",
-        "interop",
-        "istanbuljs",
-        "lcov",
-        "mocharc",
-        "module",
-        "nycrc",
-        "paren",
-        "parens"
-    ]
+  "cSpell.words": [
+    "COPYFILE",
+    "builtins",
+    "camelcase",
+    "eqeqeq",
+    "es",
+    "eslintignore",
+    "gitignore",
+    "interop",
+    "istanbuljs",
+    "lcov",
+    "mocharc",
+    "module",
+    "nycrc",
+    "paren",
+    "parens"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ]
 }

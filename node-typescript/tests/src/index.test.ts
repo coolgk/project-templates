@@ -1,6 +1,14 @@
 import { expect } from 'chai';
 import { app } from 'src/index';
 
+function getExpectedData (): Record<string, object> {
+    return {
+        dataForATestCase: {
+            value: 'debug'
+        }
+    };
+}
+
 describe('Feature: Title', () => {
     const expectedData = getExpectedData();
 
@@ -14,10 +22,3 @@ describe('Feature: Title', () => {
     });
 });
 
-function getExpectedData (): Record<string, object> {
-    return {
-        dataForATestCase: {
-            value: 'debug'
-        }
-    };
-}
