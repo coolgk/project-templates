@@ -56,9 +56,15 @@ function copyFiles (templateDirectory: string, directory: string): void {
 
 function runCommand (command: string, commandArguments: string[], options: { cwd: string }): Promise<number> {
   return new Promise((resolve) => {
-    const commandProcess = childProcess.spawn(command, commandArguments, options);
-    commandProcess.stdout.pipe(process.stdout);
-    commandProcess.stderr.pipe(process.stderr);
+    const commandProcess = childProcess.spawn(
+      command,
+      commandArguments,
+      {
+        ...options,
+        detached: true,
+        stdio: 'inherit'
+      }
+    );
     commandProcess.on('close', (code) => code && process.exit(code) || resolve(code));
   });
 }
@@ -109,7 +115,7 @@ export default async function startNodeTypescriptApp (templateDirectory: string,
 
   const devDependencies = Object.keys(packageJson.devDependencies);
   // eslint-disable-next-line no-console
-  console.info(`Installing Dependencies: ${devDependencies.join(', ')}\n`);
+  console.info(`Installing Dependencies: ${devDependencies.join(', ')}\n\n`);
   await installDevDependencies(projectDirectory, devDependencies);
 
   updatePackageJson(projectDirectory, packageJson);

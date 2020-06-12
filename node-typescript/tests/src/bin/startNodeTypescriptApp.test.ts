@@ -179,7 +179,7 @@ describe('Feature: cli', () => {
         expect(spawnStub.lastCall.args).to.deep.equal([
           'npm',
           ['i', '-D', ...Object.keys(packageJsonTemplate.devDependencies)],
-          { cwd: appDirectory }
+          { cwd: appDirectory, detached: true, stdio: 'inherit' }
         ]);
       });
     });
