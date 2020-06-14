@@ -4,8 +4,7 @@
     "plugin:security/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:prettier/recommended"
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
   ],
   "env": {
     "es6": true,
@@ -13,12 +12,9 @@
     "mocha": true
   },
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "security", "prettier"],
+  "plugins": ["@typescript-eslint", "security"],
   "parserOptions": {
     "ecmaVersion": 8,
     "project": "./tsconfig.json"
-  },
-  "rules": {
-    "prettier/prettier": "error"
   }
 }

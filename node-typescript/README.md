@@ -84,4 +84,10 @@ These configurations have only been tested with projects opened in Windows WSL m
 - Istanbul: `.nycrc`
 - Nodemon: `nodemon.json`
 - Typescript: `tsconfig.json`
-- Prettier: `.prettierrc`
+- JS Beautifier: `.jsbeautifyrc`
+
+Why not `prettier`?
+
+`prettier` is an opinionated formatter, they do not accept basic feature requests such as `space-before-function-paren`, and suggest prettier users should just follow their way of doing things (https://github.com/prettier/prettier-vscode/issues/494).
+
+`js-beautify` is less opinionated and has more formatting options.
