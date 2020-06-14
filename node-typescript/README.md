@@ -1,6 +1,8 @@
 # A Node + Typescript + Mocha + Nyc + Eslint + Nodemon Template Generator
 
-This is generic template for node + typescript projects. The entry point of the app is `src/index.ts`
+This is a generic template for node + typescript projects. It bootstraps a template project with [some popular packages](#Configuration-Files) and [npm script commands](#NPM-Scripts) pre-configured.
+
+The entry point of the app is `src/index.ts`
 
 ## Usage
 
@@ -24,17 +26,18 @@ and run
 
 ### Development Commands
 
-a `.env` file should be created first. `.env` file is used for for simulating environment variables in deployed environments (e.g. production). This file is used for local dev only, and is NOT used in production or any deployed environment (e.g. test, staging etc).
+A `.env` file should be created first. In this template, `.env` file is used for creating environment variables in the local dev environment. This file is used for local dev only, it is NOT used in the deployed environment (e.g. test, staging, prod etc). How you want to build env variables in your CI/CD process is not in the scope of this template.
 
-- `npm run dev` - start the app in local development environment
-- `npm run test:dev` - run tests locally
+- `npm run dev` - start the app in development mode (it reads the local .env file)
+- `npm run test:dev` - run tests locally (reads local .env)
 - `npm run lint` - run eslint
+- `npm run format` - run prettier
 - `npm run build:dev` - build typescript with source maps and comments in code are kept
-- `npm run mocha` - run customised mocha command e.g. test a single file `npm run mocha -- file-name-or-pattern` this command uses the mocha module installed in the project so you run tests with a consistent mocha version in all environments and you don't have to install mocha globally
+- `npm run mocha` - a helper npm script for running customised mocha command e.g. test a single file `npm run test:one -- file-name-or-pattern`
 
 ### Production Commands
 
-Production commands do not read the `.env` file. Production environment variables are defined in deployed environments.
+Production commands do not read the `.env` file. How you want to build environment variables in production environments is not in the scope of this template.
 
 Do NOT use production commands in the local development environment. They might NOT work as expected because these commands may reply environment variables from actual environments.
 
@@ -52,7 +55,9 @@ This project has been configured with three steps of code quality controls
 
 ### Pre-Commit Hook
 
-`npm run lint -- --fix` is triggered before each commit. This command fixes linting errors.
+`eslint --cache --fix` is triggered before each commit. This command tries to fix linting errors when it is possible.
+
+`eslint` has been configured to also checks and fixes formatting errors detected by `prettier`. (https://prettier.io/docs/en/integrating-with-linters.html)
 
 ### Pre-Push Hook
 
@@ -79,3 +84,4 @@ These configurations have only been tested with projects opened in Windows WSL m
 - Istanbul: `.nycrc`
 - Nodemon: `nodemon.json`
 - Typescript: `tsconfig.json`
+- Prettier: `.prettierrc`
