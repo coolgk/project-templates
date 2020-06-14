@@ -1,20 +1,21 @@
 {
     "cSpell.words": [
-        "COPYFILE",
-        "builtins",
-        "camelcase",
-        "eqeqeq",
-        "es",
-        "eslintignore",
-        "gitignore",
-        "interop",
-        "istanbuljs",
-        "lcov",
-        "mocharc",
-        "module",
-        "npmignore",
-        "nycrc",
-        "paren",
-        "parens"
+      "COPYFILE",
+      "builtins",
+      "camelcase",
+      "eqeqeq",
+      "es",
+      "eslintignore",
+      "gitignore",
+      "interop",
+      "istanbuljs",
+      "lcov",
+      "mocharc",
+      "module",
+      "npmignore",
+      "nycrc",
+      "paren",
+      "parens",
+      "prettierrc"
     ]
 }

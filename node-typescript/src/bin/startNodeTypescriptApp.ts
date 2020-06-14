@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 
-import fs from 'fs';
-import path from 'path';
-import childProcess from 'child_process';
-import packageJson from '../../package.json';
+import fs from "fs";
+import path from "path";
+import childProcess from "child_process";
+import packageJson from "../../package.json";
 
-function createProjectDirectory (directory: string): string {
+function createProjectDirectory(directory: string): string {
   const subDirectories = [
-    '',
-    'src',
-    'tests/src',
-    'dist',
-    'tmp'
+    "",
+    "src",
+    "tests/src",
+    "dist",
+    "tmp",
   ].map((subDirectory) => path.resolve(directory, subDirectory));
 
   subDirectories.forEach((subDirectory) => {
@@ -22,24 +22,27 @@ function createProjectDirectory (directory: string): string {
   return subDirectories[0];
 }
 
-function copyFiles (templateDirectory: string, directory: string): void {
+function copyFiles(templateDirectory: string, directory: string): void {
   const files = [
-    ['src/index.ts'],
-    ['tests/src/index.test.ts'],
-    ['tests/setup.ts'],
-    ['.eslintignore'],
-    ['.eslintrc.json'],
-    ['.npmignore', '.gitignore'],
-    ['.mocharc.json'],
-    ['.nycrc'],
-    ['nodemon.json'],
-    ['README.md'],
-    ['tsconfig.json'],
-    ['.env.example', '.env']
+    ["src/index.ts"],
+    ["tests/src/index.test.ts"],
+    ["tests/setup.ts"],
+    [".eslintignore"],
+    [".eslintrc.json"],
+    [".npmignore", ".gitignore"],
+    [".mocharc.json"],
+    [".nycrc"],
+    ["nodemon.json"],
+    ["README.md"],
+    ["tsconfig.json"],
+    [".env.example", ".env"],
   ];
 
   files.forEach(([templateFilename, targetFilename]) => {
-    const targetFile = path.resolve(directory, targetFilename || templateFilename);
+    const targetFile = path.resolve(
+      directory,
+      targetFilename || templateFilename
+    );
 
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (fs.existsSync(targetFile)) {
@@ -54,41 +57,47 @@ function copyFiles (templateDirectory: string, directory: string): void {
   });
 }
 
-function runCommand (command: string, commandArguments: string[], options: { cwd: string }): Promise<number> {
+function runCommand(
+  command: string,
+  commandArguments: string[],
+  options: { cwd: string }
+): Promise<number> {
   return new Promise((resolve) => {
-    const commandProcess = childProcess.spawn(
-      command,
-      commandArguments,
-      {
-        ...options,
-        detached: true,
-        stdio: 'inherit'
-      }
+    const commandProcess = childProcess.spawn(command, commandArguments, {
+      ...options,
+      detached: true,
+      stdio: "inherit",
+    });
+    commandProcess.on(
+      "close",
+      (code) => (code && process.exit(code)) || resolve(code)
     );
-    commandProcess.on('close', (code) => code && process.exit(code) || resolve(code));
   });
 }
 
-function initPackageJson (cwd: string): Promise<number> {
-  return runCommand('npm', ['init', '-y'], { cwd });
+function initPackageJson(cwd: string): Promise<number> {
+  return runCommand("npm", ["init", "-y"], { cwd });
 }
 
-function installDevDependencies (cwd: string, devDependencies: string[]): Promise<number> {
-  return runCommand(
-    'npm',
-    ['i', '-D', ...devDependencies],
-    { cwd }
-  );
+function installDevDependencies(
+  cwd: string,
+  devDependencies: string[]
+): Promise<number> {
+  return runCommand("npm", ["i", "-D", ...devDependencies], { cwd });
 }
 
-function updatePackageJson (directory: string, templatePackageJson: Record<string, unknown>): void {
-  const targetPackageJsonPath = path.resolve(directory, 'package.json');
+function updatePackageJson(
+  directory: string,
+  templatePackageJson: Record<string, unknown>
+): void {
+  const targetPackageJsonPath = path.resolve(directory, "package.json");
   // eslint-disable-next-line @typescript-eslint/no-var-requires, security/detect-non-literal-require
-  const targetPackageJson = require(targetPackageJsonPath) as Record<string, unknown>;
+  const targetPackageJson = require(targetPackageJsonPath) as Record<
+    string,
+    unknown
+  >;
 
-  const properties = [
-    'scripts', 'main', 'husky'
-  ];
+  const properties = ["scripts", "main", "husky"];
 
   properties.forEach((property) => {
     // eslint-disable-next-line security/detect-object-injection
@@ -101,12 +110,18 @@ function updatePackageJson (directory: string, templatePackageJson: Record<strin
   });
 
   // eslint-disable-next-line security/detect-non-literal-fs-filename
-  fs.writeFileSync(targetPackageJsonPath, JSON.stringify(targetPackageJson, null, 4));
+  fs.writeFileSync(
+    targetPackageJsonPath,
+    JSON.stringify(targetPackageJson, null, 4)
+  );
 }
 
-export default async function startNodeTypescriptApp (templateDirectory: string, directory = '.'): Promise<void> {
+export default async function startNodeTypescriptApp(
+  templateDirectory: string,
+  directory = "."
+): Promise<void> {
   // eslint-disable-next-line no-console
-  console.info('Initialising Project\n');
+  console.info("Initialising Project\n");
   const projectDirectory = createProjectDirectory(directory);
 
   copyFiles(templateDirectory, projectDirectory);
@@ -115,9 +130,8 @@ export default async function startNodeTypescriptApp (templateDirectory: string,
 
   const devDependencies = Object.keys(packageJson.devDependencies);
   // eslint-disable-next-line no-console
-  console.info(`Installing Dependencies: ${devDependencies.join(', ')}\n\n`);
+  console.info(`Installing Dependencies: ${devDependencies.join(", ")}\n\n`);
   await installDevDependencies(projectDirectory, devDependencies);
 
   updatePackageJson(projectDirectory, packageJson);
 }
-
