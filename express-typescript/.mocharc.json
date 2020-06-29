@@ -1,0 +1,13 @@
+{
+  "require": [
+    "ts-node/register",
+    "source-map-support/register",
+    "./tests/setup.ts"
+  ],
+  "recursive": true,
+  "exit": true,
+  "full-trace": true,
+  "bail": true,
+  "no-timeout": true,
+  "colors": true
+}
