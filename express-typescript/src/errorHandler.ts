@@ -3,8 +3,8 @@ import { Request, Response, NextFunction } from 'express';
 import logger from './logger';
 
 process.on('unhandledRejection', (error: Error) => {
-    logger.log.error(error.message);
-    logger.log.debug(JSON.stringify(error));
+  logger.log.error(error.message);
+  logger.log.debug(JSON.stringify(error));
 });
 
 export const handle404Error = (_request: Request, response: Response) => {
@@ -15,8 +15,8 @@ export const handleAllError = (error: Error, _request: Request, response: Respon
   logger.log.error(error.message);
   logger.log.debug(JSON.stringify(error));
   if (response.headersSent) {
-      next(error);
+    next(error);
   } else {
-      response.sendStatus(500);
+    response.sendStatus(500);
   }
-}
+};

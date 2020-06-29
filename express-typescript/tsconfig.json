@@ -1,18 +1,17 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "ES2018",
-        "strict": true,
-        "esModuleInterop": true,
-        "moduleResolution": "node",
-        "sourceMap": false,
-        "outDir": "dist",
-        "baseUrl": ".",
-        "pretty": true,
-        "removeComments": true,
-        "resolveJsonModule": true,
-        "noUnusedParameters": true,
-        "noUnusedLocals": true
-    },
-    "include": ["src/**/*", "tests/**/*"]
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2018",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "sourceMap": false,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "pretty": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "noUnusedParameters": true
+  },
+  "include": ["src/**/*", "tests/**/*"]
 }

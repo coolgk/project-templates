@@ -1,21 +1,26 @@
 import { Router, Request, Response } from 'express';
-import { createUser, getUser, deleteUser } from './users.service';
+import bodyParser from 'body-parser';
+
+import { findAll, createOne, findOne, deleteOne, User } from './users.service';
 
 const router = Router();
 
-router.get('/:id', async (request: Request, response: Response) => {
-  const result = await getUser(request.params.id);
-  response.json(result);
+router.get('/:id', (request: Request, response: Response) => {
+  response.json(findOne(request.params.id));
 });
 
-router.post('/', async (request: Request, response: Response) => {
-  const result = await createUser({ username: request.body.username });
-  response.json(result);
-});
+router
+  .route('/')
+  .get((_: Request, response: Response) => {
+    response.json(findAll());
+  })
+  .post(bodyParser.json(), (request: Request, response: Response) => {
+    response.json(createOne({ username: (request.body as Omit<User, 'id'>).username }));
+  });
 
-router.delete('/:id', async (request: Request, response: Response) => {
-  await deleteUser(request.params.id);
-  response.json('deleted');
+router.delete('/:id', (request: Request, response: Response) => {
+  deleteOne(request.params.id);
+  response.sendStatus(204);
 });
 
 export default router;

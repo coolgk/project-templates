@@ -109,3 +109,4 @@ dist/
 config/local*
 tmp/
 .eslintcache
+.vscode

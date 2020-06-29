@@ -1,20 +1,27 @@
-import { createOne, getOne, deleteOne } from 'src/database';
+const users: User[] = [];
 
-const TABLE = 'users';
-
-interface IUser {
-  id?: string;
+export interface User {
+  id: string;
   username: string;
 }
 
-export const createUser = ({ username }: IUser) => {
-  return createOne(TABLE, { id: String(Date.now()), username });
-}
+export const createOne = ({ username }: Omit<User, 'id'>): User => {
+  const user = { id: String(users.length + 1), username };
+  users.push(user);
+  return user;
+};
 
-export const getUser = (id: string) => {
-  return getOne(TABLE, { id });
-}
+export const findOne = (id: string): User | undefined => {
+  return users.find((user) => user.id === id);
+};
 
-export const deleteUser = (id: string) => {
-  return deleteOne(TABLE, { id });
-}
+export const findAll = (): User[] => {
+  return users;
+};
+
+export const deleteOne = (id: string): void => {
+  users.splice(
+    users.findIndex((user) => user.id === id),
+    1
+  );
+};
