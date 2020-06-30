@@ -1,5 +1,5 @@
 {
-  "name": "create-express-typescript-app",
+  "name": "create-typescript-express-app",
   "version": "0.0.1-alpha.0",
   "description": "This is a generic template for express + typescript projects. It bootstraps a template project with some popular packages and some pre-configured npm script commands.",
   "main": "dist/src/server.js",
@@ -65,7 +65,7 @@
     "typescript": "^3.9.5"
   },
   "bin": {
-    "create-express-typescript-app": "./bin/cli"
+    "create-typescript-express-app": "./bin/cli"
   },
   "keywords": [
     "node",
@@ -81,5 +81,6 @@
   "license": "MIT",
   "engines": {
     "node": "^12.0.0"
-  }
+  },
+  "gitHead": "6c6b395759bae88a852a6015bef3d5f34d06892b"
 }

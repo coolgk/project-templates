@@ -66,5 +66,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/coolgk/project-templates/tree/master/node-typescript"
-  }
+  },
+  "gitHead": "6c6b395759bae88a852a6015bef3d5f34d06892b"
 }
