@@ -12,7 +12,7 @@ router.get('/robots.txt', cacheForever(), (_: Request, response: Response) => {
   response.send('User-agent: *\nDisallow: /');
 });
 
-router.use('/health-check', nocache(), (_: Request, response: Response) => {
+router.get('/health-check', nocache(), (_: Request, response: Response) => {
   response.json({ timestamp: new Date() });
 });
 
