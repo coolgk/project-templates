@@ -1,6 +1,6 @@
 {
   "name": "create-node-typescript-app",
-  "version": "0.1.1",
+  "version": "0.1.2-alpha.0",
   "description": "a template for node typescript projects",
   "main": "dist/src",
   "scripts": {
