@@ -1,26 +1,26 @@
 # A Node + Typescript + Mocha + Nyc + Eslint + Nodemon Template Generator
 
-This is a generic template for node + typescript projects. It bootstraps a template project with [some popular packages](#Configuration-Files) and [npm script commands](#NPM-Scripts) pre-configured.
+This is a template for expressjs + typescript projects. It bootstraps a template project with [some popular packages](#Configuration-Files) and some pre-configured [npm script commands](#NPM-Scripts).
 
-The entry point of the app is `src/index.ts`
+The entry point of the app is `src/server.ts`
 
 ## Usage
 
 create a new project in a new `folder`
 
-`npx create-node-typescript-app <folder>`
+`npx create-typescript-express-app <folder>`
 
 or inside the project directory
 
-`npm init node-typescript-app` or `npx create-node-typescript-app .`
+`npm init typescript-express-app` or `npx create-typescript-express-app .`
 
 or install this module globally
 
-`npm i -g create-node-typescript-app`
+`npm i -g create-typescript-express-app`
 
 and run
 
-`create-node-typescript-app <folder>`
+`create-typescript-express-app <folder>`
 
 ## NPM Scripts
 
@@ -30,6 +30,7 @@ A `.env` file should be created first. In this template, `.env` file is used for
 
 - `npm run dev` - start the app in development mode (it reads the local .env file)
 - `npm run test:dev` - run tests locally (reads local .env)
+- `npm run test:watch` - run tests locally (reads local .env) in watch mode
 - `npm run lint` - run eslint
 - `npm run format` - run prettier
 - `npm run build:dev` - build typescript with source maps and comments in code are kept
@@ -39,11 +40,11 @@ A `.env` file should be created first. In this template, `.env` file is used for
 
 Production commands do not read the `.env` file. How you want to build environment variables in production environments is not in the scope of this template.
 
-Do NOT use production commands in the local development environment. They might NOT work as expected because these commands may reply environment variables from actual environments.
+Do NOT use production commands in the local development environment. They might NOT work as expected because these commands may reply environment variables from the actual environments.
 
 - `npm start` - start application
 - `npm build` - compile typescript with no source maps and comments are removed from ts files
-- `npm test` - run tests
+- `npm test` - run tests and coverage report
 
 ### NODE_PATH
 
@@ -55,7 +56,7 @@ This project has been configured with three steps of code quality controls
 
 ### Pre-Commit Hook
 
-`eslint --cache --fix` is triggered before each commit. This command tries to fix linting errors when it is possible.
+`eslint --fix` is triggered before each commit. This command tries to fix linting errors when it is possible.
 
 `eslint` has been configured to also check and fix formatting errors detected by `prettier`. (https://prettier.io/docs/en/integrating-with-linters.html)
 
@@ -64,6 +65,17 @@ This project has been configured with three steps of code quality controls
 `npm run test:dev` is triggered before each push. Push will fail if tests fail or test coverage is below the threshold defined in `./.nycrc`.
 
 `npm run audit` is triggered before each push. Push will fail if there are vulnerabilities in dependencies. You should run `npm audit fix` to fix the vulnerabilities and commit the changes before you push again.
+
+## Folder Structure
+
+If you have your own folder structure, just delete `tests` folder and everything in `src` folder except for `src/server.ts`
+
+```
+dist -- git ignored
+src
+
+tests
+```
 
 ## Debug Configurations for VS Code in Windows WSL
 

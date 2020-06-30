@@ -95,7 +95,7 @@ function updatePackageJson(directory: string, templatePackageJson: Record<string
   // eslint-disable-next-line @typescript-eslint/no-var-requires, security/detect-non-literal-require
   const targetPackageJson = require(targetPackageJsonPath) as Record<string, unknown>;
 
-  const properties = ['scripts', 'main', 'husky'];
+  const properties = ['scripts', 'main', 'husky', 'lint-staged'];
 
   properties.forEach((property) => {
     // eslint-disable-next-line security/detect-object-injection

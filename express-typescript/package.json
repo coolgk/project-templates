@@ -33,6 +33,9 @@
       "pre-push": "npm run test:dev && npm audit"
     }
   },
+  "lint-staged": {
+    "{tests,src}/**/*.{js,ts}": "eslint --fix"
+  },
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@types/chai": "^4.2.11",
