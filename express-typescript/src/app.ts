@@ -1,19 +1,22 @@
-import express from 'express';
+import express, { NextFunction, Request, Response, Express } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 
 import config from './config';
-// import { handle404Error, handleAllError } from './errorHandler';
 import route from './routes/route';
+import { logger } from './utils/logger';
 
-const app = express();
+export default (app = express()): Express => {
+  app.use(helmet());
+  app.use(cors(config.cors));
 
-app.use(helmet());
-app.use(cors(config.cors));
+  route(app);
 
-route(app);
+  app.use((_, response) => response.sendStatus(404));
+  app.use((error: Error, _: Request, __: Response, next: NextFunction) => {
+    logger.error(error);
+    next(error);
+  });
 
-// app.use(handle404Error);
-// app.use(handleAllError);
-
-export default app;
+  return app;
+};

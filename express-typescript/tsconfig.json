@@ -10,8 +10,7 @@
     "baseUrl": ".",
     "pretty": true,
     "removeComments": true,
-    "resolveJsonModule": true,
-    "noUnusedParameters": true
+    "resolveJsonModule": true
   },
   "include": ["src/**/*", "tests/**/*"]
 }

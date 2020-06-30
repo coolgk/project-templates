@@ -1,4 +1,4 @@
-const users: User[] = [];
+export const users: User[] = [];
 
 export interface User {
   id: string;
@@ -11,17 +11,17 @@ export const createOne = ({ username }: Omit<User, 'id'>): User => {
   return user;
 };
 
-export const findOne = (id: string): User | undefined => {
-  return users.find((user) => user.id === id);
-};
-
 export const findAll = (): User[] => {
   return users;
 };
 
-export const deleteOne = (id: string): void => {
-  users.splice(
-    users.findIndex((user) => user.id === id),
-    1
-  );
-};
+// export const findOne = (id: string): User | undefined => {
+//   return users.find((user) => user.id === id);
+// };
+
+// export const deleteOne = (id: string): void => {
+//   users.splice(
+//     users.findIndex((user) => user.id === id),
+//     1
+//   );
+// };

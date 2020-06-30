@@ -2,17 +2,18 @@
   "name": "ts-express",
   "version": "1.0.0",
   "description": "This is a generic template for node + typescript projects. It bootstraps a template project with [some popular packages](#Configuration-Files) and [npm script commands](#NPM-Scripts) pre-configured.",
-  "main": "dist/src",
+  "main": "dist/src/server.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
     "start": "cross-env NODE_PATH=./dist node .",
     "build": "rm -fr ./dist/* && tsc",
-    "test": "cross-env NODE_PATH=. nyc mocha -- \"tests/**/*.(test|spec).ts\"",
+    "test": "cross-env NODE_PATH=. nyc mocha -- \"tests/**/*.{test,spec}.ts\"",
     "dev": "cross-env NODE_PATH=./dist nodemon --verbose",
     "build:dev": "tsc --sourceMap --removeComments false --pretty",
-    "test:dev": "cross-env NODE_PATH=. nyc mocha -- -r dotenv/config \"tests/**/*.(test|spec).ts\"",
+    "test:dev": "cross-env NODE_PATH=. nyc mocha -- -r dotenv/config \"tests/**/*.{test,spec}.ts\"",
+    "test:watch": "cross-env NODE_PATH=. mocha -- -r dotenv/config \"tests/**/*.{test,spec}.ts\" --watch",
     "mocha": "cross-env NODE_PATH=. mocha -r dotenv/config",
     "lint": "eslint --ext .js,.ts .",
     "format": "prettier",
@@ -21,6 +22,21 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.23.3",
+    "nocache": "^2.1.0",
+    "swagger-ui-express": "^4.1.4",
+    "winston": "^3.3.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test:dev && npm audit"
+    }
+  },
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@types/chai": "^4.2.11",
@@ -51,20 +67,5 @@
     "supertest": "^4.0.2",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run test:dev && npm audit"
-    }
-  },
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "helmet": "^3.23.3",
-    "nocache": "^2.1.0",
-    "swagger-ui-express": "^4.1.4",
-    "winston": "^3.3.3"
   }
 }
