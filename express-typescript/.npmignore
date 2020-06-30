@@ -1,0 +1,5 @@
+.env
+src/bin
+!.gitignore
+dist/src/bin
+tmp

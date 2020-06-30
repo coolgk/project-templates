@@ -1,7 +1,7 @@
 {
-  "name": "ts-express",
-  "version": "1.0.0",
-  "description": "This is a generic template for node + typescript projects. It bootstraps a template project with [some popular packages](#Configuration-Files) and [npm script commands](#NPM-Scripts) pre-configured.",
+  "name": "create-express-typescript-app",
+  "version": "0.0.0",
+  "description": "This is a generic template for express + typescript projects. It bootstraps a template project with some popular packages and some pre-configured npm script commands.",
   "main": "dist/src/server.js",
   "directories": {
     "test": "tests"
@@ -19,16 +19,12 @@
     "format": "prettier",
     "prepublishOnly": "npm run build -- --declaration"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "helmet": "^3.23.3",
     "nocache": "^2.1.0",
-    "swagger-ui-express": "^4.1.4",
     "winston": "^3.3.3"
   },
   "husky": {
@@ -67,5 +63,23 @@
     "supertest": "^4.0.2",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.5"
+  },
+  "bin": {
+    "create-express-typescript-app": "./bin/cli"
+  },
+  "keywords": [
+    "node",
+    "typescript",
+    "express",
+    "template"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coolgk/project-templates/tree/master/express-typescript"
+  },
+  "author": "Daniel Gong",
+  "license": "MIT",
+  "engines": {
+    "node": "^12.0.0"
   }
 }
