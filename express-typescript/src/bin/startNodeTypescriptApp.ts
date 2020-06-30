@@ -13,6 +13,8 @@ function createProjectDirectory(directory: string): string {
     'src/middleware',
     'src/utils',
     'tests/src',
+    'tests/src/routes/root',
+    'tests/src/routes/users',
     'dist',
     'tmp'
   ].map((subDirectory) => path.resolve(directory, subDirectory));
@@ -59,9 +61,9 @@ function copyFiles(templateDirectory: string, directory: string): void {
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (fs.existsSync(targetFile)) {
       const basename = path.basename(targetFile);
-      fs.copyFileSync(targetFile, `original.${targetFile}`);
+      fs.copyFileSync(targetFile, `${targetFile}.original`);
       // eslint-disable-next-line no-console
-      console.info(`renamed existing ${basename} to original.${basename}`);
+      console.info(`renamed existing ${basename} to ${basename}.original`);
     }
 
     const templateFile = path.resolve(templateDirectory, templateFilename);
@@ -97,10 +99,10 @@ function updatePackageJson(directory: string, templatePackageJson: Record<string
 
   properties.forEach((property) => {
     // eslint-disable-next-line security/detect-object-injection
-    if (targetPackageJson[property]) {
-      // eslint-disable-next-line security/detect-object-injection
-      targetPackageJson[`original.${property}`] = targetPackageJson[property];
-    }
+    // if (targetPackageJson[property]) {
+    //   // eslint-disable-next-line security/detect-object-injection
+    //   targetPackageJson[`${property}.original`] = targetPackageJson[property];
+    // }
     // eslint-disable-next-line security/detect-object-injection
     targetPackageJson[property] = templatePackageJson[property];
   });
