@@ -1,6 +1,4 @@
 {
-  "packages": [
-    "node-typescript"
-  ],
+  "packages": ["node-typescript", "express-typescript"],
   "version": "independent"
 }

@@ -97,7 +97,7 @@ function updatePackageJson(
     unknown
   >;
 
-  const properties = ["scripts", "main", "husky"];
+  const properties = ["scripts", "main", "husky", "lint-staged"];
 
   properties.forEach((property) => {
     // eslint-disable-next-line security/detect-object-injection
