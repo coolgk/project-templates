@@ -34,7 +34,7 @@ A `.env` file should be created first. In this template, `.env` file is used for
 - `npm run lint` - run eslint
 - `npm run format` - run prettier
 - `npm run build:dev` - build typescript with source maps and comments in code are kept
-- `npm run mocha` - a helper npm script for running customised mocha command e.g. test a single file `npm run test:one -- file-name-or-pattern`
+- `npm run mocha` - a helper npm script for running customised mocha command e.g. test a single file `npm run mocha -- file-name-or-pattern`
 
 ### Production Commands
 
