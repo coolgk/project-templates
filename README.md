@@ -2,9 +2,13 @@
 
 [![Build Status](https://travis-ci.org/coolgk/project-templates.svg?branch=master)](https://travis-ci.org/coolgk/project-templates)
 
-[Node + Typescript + Mocha + Nyc + Eslint + Nodemon Template](./node-typescript)
+[Node + Typescript + Mocha + Nyc + Eslint + Nodemon + Prettier Template](./node-typescript)
 
-This is a generic template for node + typescript projects. It bootstraps a template project with some popular packages and npm script commands pre-configured.
+This is a generic template for node + typescript projects. It bootstraps a template project with some popular packages and a few helpful pre-configured npm scripts.
+
+[Express + Typescript + Mocha + Nyc + Eslint + Nodemon + Prettier + Winston Template](./express-typescript)
+
+This is a template for express + typescript projects. It bootstraps a template project with some popular packages and a few helpful pre-configured npm scripts.
 
 [![Known Vulnerabilities](https://snyk.io/test/github/coolgk/project-templates/badge.svg?targetFile=node-typescript/package.json)](https://snyk.io/test/github/coolgk/project-templates?targetFile=node-typescript/package.json)
 
