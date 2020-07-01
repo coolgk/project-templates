@@ -9,6 +9,7 @@ function createProjectDirectory(directory: string): string {
   const subDirectories = [
     "",
     "src",
+    "tests",
     "tests/src",
     "dist",
     "tmp",

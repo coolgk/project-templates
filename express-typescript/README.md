@@ -1,4 +1,4 @@
-# A Node + Typescript + Mocha + Nyc + Eslint + Nodemon Template Generator
+# An Express + Typescript + Mocha + Nyc + Eslint + Nodemon + Prettier Template Generator
 
 This is a template for expressjs + typescript projects. It bootstraps a template project with [some popular packages](#Configuration-Files) and some pre-configured [npm script commands](#NPM-Scripts).
 

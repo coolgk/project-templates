@@ -8,11 +8,15 @@ import packageJson from '../../package.json';
 function createProjectDirectory(directory: string): string {
   const subDirectories = [
     '',
+    'src',
+    'src/routes',
     'src/routes/root',
     'src/routes/users',
     'src/middleware',
     'src/utils',
+    'tests',
     'tests/src',
+    'tests/src/routes',
     'tests/src/routes/root',
     'tests/src/routes/users',
     'dist',

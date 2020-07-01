@@ -6,7 +6,7 @@
 
 This is a generic template for node + typescript projects. It bootstraps a template project with some popular packages and a few helpful pre-configured npm scripts.
 
-[Express + Typescript + Mocha + Nyc + Eslint + Nodemon + Prettier + Winston Template](./express-typescript)
+[Express + Typescript + Mocha + Nyc + Eslint + Nodemon + Prettier Template](./express-typescript)
 
 This is a template for express + typescript projects. It bootstraps a template project with some popular packages and a few helpful pre-configured npm scripts.
 
