@@ -113,3 +113,7 @@ These configurations have only been tested with projects opened in Windows WSL m
 - Nodemon: `nodemon.json`
 - Typescript: `tsconfig.json`
 - Prettier: `.prettierrc`
+
+## Windows Users
+
+you might need to install dev dependencies globally
