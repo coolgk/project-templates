@@ -80,6 +80,7 @@ function runCommand(command: string, commandArguments: string[], options: { cwd:
     const commandProcess = childProcess.spawn(command, commandArguments, {
       ...options,
       detached: true,
+      shell: true,
       stdio: 'inherit'
     });
     commandProcess.on('close', (code) => (code && process.exit(code)) || resolve(code));
