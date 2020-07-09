@@ -46,6 +46,7 @@ function copyFiles(templateDirectory: string, directory: string): void {
     ['tests/setup.ts'],
     ['tests/src/server.test.ts'],
     ['tests/src/app.test.ts'],
+    ['tests/src/config.test.ts'],
     ['tests/src/routes/root/root.controller.test.ts'],
     ['tests/src/routes/users/users.controller.test.ts'],
     ['.eslintignore'],
@@ -80,6 +81,7 @@ function runCommand(command: string, commandArguments: string[], options: { cwd:
     const commandProcess = childProcess.spawn(command, commandArguments, {
       ...options,
       detached: true,
+      shell: true,
       stdio: 'inherit'
     });
     commandProcess.on('close', (code) => (code && process.exit(code)) || resolve(code));
