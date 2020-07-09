@@ -46,6 +46,7 @@ function copyFiles(templateDirectory: string, directory: string): void {
     ['tests/setup.ts'],
     ['tests/src/server.test.ts'],
     ['tests/src/app.test.ts'],
+    ['tests/src/config.test.ts'],
     ['tests/src/routes/root/root.controller.test.ts'],
     ['tests/src/routes/users/users.controller.test.ts'],
     ['.eslintignore'],
