@@ -1,6 +1,6 @@
 {
   "name": "create-typescript-express-app",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "This is a generic template for express + typescript projects. It bootstraps a template project with some popular packages and some pre-configured npm script commands.",
   "main": "dist/src/server.js",
   "directories": {
