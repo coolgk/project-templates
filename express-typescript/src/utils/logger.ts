@@ -1,6 +1,6 @@
 import { createLogger, format, transports as winstonTransports } from 'winston';
 
-import config from 'src/config';
+import { config } from 'src/config';
 
 export enum Transport {
   Console = 'console'

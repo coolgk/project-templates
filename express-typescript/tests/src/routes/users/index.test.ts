@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import supertest from 'supertest';
-import * as userService from 'src/routes/users/users.service';
+import * as userService from 'src/services/user-service';
 
-import app from 'src/app';
+import { app } from 'src/app';
 
 describe('Users', () => {
   beforeEach(() => {

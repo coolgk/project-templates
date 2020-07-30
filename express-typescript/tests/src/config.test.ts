@@ -23,8 +23,8 @@ describe('App Config', () => {
       });
 
       it('should use default values', () => {
-        expect(config.default).to.have.property('logLevel', 'error');
-        expect(config.default).to.have.deep.property('logTransports', ['console']);
+        expect(config.config).to.have.property('logLevel', 'error');
+        expect(config.config).to.have.deep.property('logTransports', ['console']);
       });
     });
   });

@@ -1,15 +1,15 @@
 import { Router, Express } from 'express';
 
-import config from 'src/config';
+import { config } from 'src/config';
 
-import rootController from 'src/routes/root/root.controller';
-import users from './users/users.controller';
+import rootRoutes from 'src/routes/root';
+import userRoutes from './users';
 
 export default (app: Express): void => {
-  app.use(rootController);
+  app.use(rootRoutes);
 
   const api = Router();
-  api.use('/users', users);
+  api.use('/users', userRoutes);
 
   app.use(config.apiPrefix, api);
 };

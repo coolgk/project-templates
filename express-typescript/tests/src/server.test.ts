@@ -1,24 +1,26 @@
-import sinon, { SinonStub } from 'sinon';
+import sinon from 'sinon';
 import { expect } from 'chai';
 
 import * as app from 'src/app';
-import config from 'src/config';
+import { config } from 'src/config';
 
 describe('Server', () => {
-  const listenStub = sinon.stub().callsFake((_, callback: () => void) => {
+  const sandbox = sinon.createSandbox();
+
+  const listenStub = sandbox.stub().callsFake((_, callback: () => void) => {
     callback();
   });
 
   before(() => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    sinon.stub(app, 'default').returns({
+    sandbox.stub(app, 'app').returns({
       listen: listenStub
     });
   });
 
   after(() => {
-    (app.default as SinonStub).restore();
+    sandbox.restore();
   });
 
   context(`when server starts`, () => {

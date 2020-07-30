@@ -1,5 +1,12 @@
 {
   "cSpell.words": [
-    "nocache"
+    "eslintignore",
+    "mocharc",
+    "nocache",
+    "npmignore",
+    "nycrc",
+    "prettierrc",
+    "setup",
+    "spec"
   ]
 }

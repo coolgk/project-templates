@@ -70,20 +70,22 @@ This project has been configured with three steps of code quality controls
 
 If you have your own folder structure, just delete `tests` folder and everything in `src` folder except for `src/server.ts`
 
-```
+```yaml
 dist -- target folder for `npm build` (git ignored)
 src -- source folder, all source code
   src/middleware - you can put your common middleware here
   src/middleware/cache-forever.ts - an example middleware which sets the Cache-Control header
   src/routes - all urls available from the service
   src/route/root - urls at root level
-  src/route/root/root.controler.ts - a controller for /favicon.ico /robots.txt /health-check endpoints
-  src/routes/users/users.controller.ts - an example controller
-  src/routes/users/users.service.ts - an example service/helper/model
-  src/utils - utitily helpers
+  src/route/root/index.ts - a handlers for /favicon.ico /robots.txt /health-check endpoints
+  src/routes/users/index.ts - an example route handler
+  src/services/user-service.ts - an example service/helper/model
+  src/utils - utility helpers
   src/utils/loggers.ts - winston logger
-  src/app.ts - creats an express object
-  src/config.ts - configuraiton file for the app
+  src/validation-schemas - joi schemas
+  src/validation-schemas/config-schema.ts - joi schemas for config file
+  src/app.ts - creates an express object
+  src/config.ts - configuration file, validated with joi schema, app will fail to start if config is invalid
   src/server.ts - start the http server
 tests - test related files
   tests/src - all tests

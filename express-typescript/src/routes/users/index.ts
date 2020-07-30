@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
 import bodyParser from 'body-parser';
 
-import { findAll, createOne, User } from './users.service';
+import { findAll, createOne, User } from 'src/services/user-service';
 
 const router = Router();
 

@@ -14,6 +14,8 @@ function createProjectDirectory(directory: string): string {
     'src/routes/users',
     'src/middleware',
     'src/utils',
+    'src/services',
+    'src/validation-schemas',
     'tests',
     'tests/src',
     'tests/src/routes',
@@ -33,22 +35,24 @@ function createProjectDirectory(directory: string): string {
 
 function copyFiles(templateDirectory: string, directory: string): void {
   const files = [
-    ['src/server.ts'],
+    ['src/middleware/cache-forever.ts'],
+    ['src/routes/root/index.ts'],
+    ['src/routes/users/index.ts'],
+    ['src/routes/route.ts'],
+    ['src/services/user-service.ts'],
+    ['src/utils/logger.ts'],
+    ['src/validation-schemas/config-schema.ts'],
     ['src/app.ts'],
     ['src/config.ts'],
-    ['src/utils/logger.ts'],
-    ['src/routes/route.ts'],
-    ['src/routes/root/root.controller.ts'],
-    ['src/routes/users/users.controller.ts'],
-    ['src/routes/users/users.service.ts'],
-    ['src/middleware/cache-forever.ts'],
-    ['tests/utils.ts'],
-    ['tests/setup.ts'],
-    ['tests/src/server.test.ts'],
+    ['src/server.ts'],
+    ['tests/src/routes/root/index.test.ts'],
+    ['tests/src/routes/users/index.test.ts'],
     ['tests/src/app.test.ts'],
     ['tests/src/config.test.ts'],
-    ['tests/src/routes/root/root.controller.test.ts'],
-    ['tests/src/routes/users/users.controller.test.ts'],
+    ['tests/src/server.test.ts'],
+    ['tests/setup.ts'],
+    ['tests/utils.ts'],
+    ['.env.example', '.env'],
     ['.eslintignore'],
     ['.eslintrc.json'],
     ['.npmignore', '.gitignore'],
@@ -56,8 +60,7 @@ function copyFiles(templateDirectory: string, directory: string): void {
     ['.nycrc'],
     ['nodemon.json'],
     ['README.md'],
-    ['tsconfig.json'],
-    ['.env.example', '.env']
+    ['tsconfig.json']
   ];
 
   files.forEach(([templateFilename, targetFilename]) => {

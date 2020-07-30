@@ -3,7 +3,7 @@ import express from 'express';
 import sinon, { SinonStub } from 'sinon';
 import { expect } from 'chai';
 
-import app from 'src/app';
+import { app } from 'src/app';
 import { getRandomString } from 'tests/utils';
 import { logger } from 'src/utils/logger';
 
