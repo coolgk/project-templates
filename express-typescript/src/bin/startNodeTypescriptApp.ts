@@ -22,6 +22,7 @@ function createProjectDirectory(directory: string): string {
     'tests/src/routes/root',
     'tests/src/routes/users',
     'dist',
+    '.vscode',
     'tmp'
   ].map((subDirectory) => path.resolve(directory, subDirectory));
 
@@ -35,6 +36,9 @@ function createProjectDirectory(directory: string): string {
 
 function copyFiles(templateDirectory: string, directory: string): void {
   const files = [
+    ['.vscode/launch.json'],
+    ['.vscode/settings.json'],
+    ['.vscode/tasks.json'],
     ['src/middleware/cache-forever.ts'],
     ['src/routes/root/index.ts'],
     ['src/routes/users/index.ts'],
