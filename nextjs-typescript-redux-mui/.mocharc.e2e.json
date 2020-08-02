@@ -1,0 +1,11 @@
+{
+  "require": ["tests/babel-register.js", "jsdom-global/register"],
+  "recursive": true,
+  "check-leaks": true,
+  "full-trace": true,
+  "bail": true,
+  "timeout": 30000,
+  "colors": true,
+  "exit": true,
+  "watch-files": ["src/**/*.ts", "tests-e2e/**/*.ts"]
+}
