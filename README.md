@@ -10,6 +10,10 @@ This is a generic template for node + typescript projects. It bootstraps a templ
 
 This is a template for express + typescript projects. It bootstraps a template project with some popular packages and a few helpful pre-configured npm scripts.
 
+[NextJS + Redux + Material UI + Typescript + Mocha + Puppeteer Template](./nextjs-typescript-redux-mui)
+
+This is a template for NextJS + Redux + Material UI + Typescript + Puppeteer + Mocha projects.
+
 [![Known Vulnerabilities](https://snyk.io/test/github/coolgk/project-templates/badge.svg?targetFile=node-typescript/package.json)](https://snyk.io/test/github/coolgk/project-templates?targetFile=node-typescript/package.json)
 
 ## Other things to Consider
