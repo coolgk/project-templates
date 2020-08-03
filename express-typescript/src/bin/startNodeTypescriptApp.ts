@@ -62,6 +62,7 @@ function copyFiles(templateDirectory: string, directory: string): void {
     ['.npmignore', '.gitignore'],
     ['.mocharc.json'],
     ['.nycrc'],
+    ['ecosystem.config.js'],
     ['nodemon.json'],
     ['README.md'],
     ['tsconfig.json']

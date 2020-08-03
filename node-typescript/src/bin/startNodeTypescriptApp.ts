@@ -36,6 +36,7 @@ function copyFiles(templateDirectory: string, directory: string): void {
     ["nodemon.json"],
     ["README.md"],
     ["tsconfig.json"],
+    ["ecosystem.config.js"],
     [".env.example", ".env"],
   ];
 

@@ -4,6 +4,7 @@
   "description": "a template for node typescript projects",
   "main": "dist/src",
   "scripts": {
+    "start:pm2": "pm2 start",
     "start": "cross-env NODE_PATH=./dist NODE_ENV=production node .",
     "build": "rm -fr ./dist/* && tsc",
     "test": "cross-env NODE_PATH=. nyc mocha -- \"tests/**/*.test.ts\"",
@@ -67,5 +68,8 @@
     "type": "git",
     "url": "https://github.com/coolgk/project-templates/tree/master/node-typescript"
   },
-  "gitHead": "b5c8bddb6d5d825ae82cc26f7ca983c952a6f919"
+  "gitHead": "b5c8bddb6d5d825ae82cc26f7ca983c952a6f919",
+  "dependencies": {
+    "pm2": "^4.4.0"
+  }
 }
