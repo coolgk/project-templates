@@ -12,8 +12,6 @@ A `.env` file should be created first. In this template, `.env` file is used for
 - `npm run test:dev` - run tests locally (reads local .env)
 - `npm run lint` - run eslint
 - `npm run format` - run prettier
-- `npm run build:dev` - build typescript with source maps and comments in code are kept
-- `npm run mocha` - a helper npm script for running customised mocha command e.g. test a single file `npm run mocha -- file-name-or-pattern`
 
 ### Production Commands
 
@@ -23,7 +21,7 @@ Do NOT use production commands in the local development environment. They might 
 
 - `npm start` - start application
 - `npm build` - compile typescript with no source maps and comments are removed from ts files
-- `npm test` - run tests
+- `npm test` - run tests (read environment variables from the environment, not from .env)
 
 ## Quality Control
 
