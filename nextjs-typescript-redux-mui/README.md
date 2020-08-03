@@ -29,7 +29,7 @@ This project has been configured with three steps of code quality controls
 
 ### Pre-Commit Hook
 
-`eslint --cache --fix` is triggered before each commit. This command tries to fix linting errors when it is possible.
+`eslint --fix` is triggered before each commit. This command tries to fix linting errors when it is possible.
 
 `eslint` has been configured to also check and fix formatting errors detected by `prettier`. (https://prettier.io/docs/en/integrating-with-linters.html)
 
