@@ -72,7 +72,7 @@
     "jsdom-global": "^3.0.2",
     "lint-staged": "^10.2.11",
     "mocha": "^8.1.0",
-    "nanoid": "^3.1.10",
+    "nanoid": "^3.1.31",
     "node-fetch": "^2.6.1",
     "nyc": "^15.1.0",
     "prettier": "^2.0.5",
