@@ -14,7 +14,9 @@
     "mocha": "cross-env NODE_PATH=. mocha -r dotenv/config",
     "lint": "eslint --ext .js,.ts .",
     "format": "prettier",
-    "prepublishOnly": "npm run build -- --declaration"
+    "prepublishOnly": "npm run build -- --declaration",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "engines": {
     "node": "^12.0.0"
@@ -70,6 +72,8 @@
   },
   "gitHead": "b5c8bddb6d5d825ae82cc26f7ca983c952a6f919",
   "dependencies": {
-    "pm2": "^4.4.0"
-  }
+    "pm2": "^4.4.0",
+    "@snyk/protect": "latest"
+  },
+  "snyk": true
 }
